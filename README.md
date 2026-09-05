@@ -1,6 +1,7 @@
 # Programa Mutante
 
 ## Descripción
+Hilary Aguilar 2026088327
 
 Este proyecto es un programa desarrollado en Java para demostrar conceptos fundamentales de Programación Orientada a Objetos (POO), principalmente herencia, polimorfismo, encapsulamiento y organización mediante paquetes.
 
