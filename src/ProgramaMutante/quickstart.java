@@ -1,71 +1,102 @@
+package programaMutante;
+
+import personas.*;
+import poderes.*;
+import profesiones.*;
+
 public class quickstart {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
+
         System.out.println("Hello clase de Poo");
 
-        Persona rodri= new Persona();
-        Persona p1 = new Persona("Juliana Lopez",(byte)22);
+        Persona hila = new Persona();
+        Persona p1 = new Persona("Juliana Lopez", (byte)22);
 
-        System.out.println(rodri.getNombre());
-        rodri.Cantar();
+        System.out.println(hila.getNombre());
+        hila.cantar();
 
         System.out.println("------------------------------");
 
-        String nombreResultado= p1.getNombre();
+        String nombreResultado = p1.getNombre();
         System.out.println(nombreResultado);
-        p1.Cantar();
+        p1.cantar();
 
         System.out.println("------------------------------");
 
-        System.out.println("Edad de "+ rodri.getNombre()+ " "+ rodri.getEdad());
-        rodri.setEdad((byte)18);
-        System.out.println("Edad de "+ rodri.getNombre()+ " "+ rodri.getEdad());
+        System.out.println("Edad de " + hila.getNombre() + " " + hila.getEdad());
+
+        hila.setEdad((byte)18);
+
+        System.out.println("Edad de " + hila.getNombre() + " " + hila.getEdad());
 
         System.out.println("------------------------------");
-        
+
+        // Aquí no hubo new, solo es un apuntador a la misma instancia
+        // a la que apunta p1
         Persona xyz = p1;
-        System.out.println("Edad de "+ p1.getNombre()+ " " + p1.getEdad());
-        System.out.println("Edad de "+ xyz.getNombre()+ " "+ xyz.getEdad());
 
-        enfermero ari = new enfermero("Ari Tarasova", 200);
+        System.out.println("Edad de " + p1.getNombre() + " " + p1.getEdad());
+        System.out.println("Edad de " + xyz.getNombre() + " " + xyz.getEdad());
+
+        xyz.setEdad((byte)27);
+
+        System.out.println("Edad de " + p1.getNombre() + " " + p1.getEdad());
+
+        hila = xyz;
+
+        // Ahora hila, xyz y p1 apuntan a la misma instancia.
+
+        System.out.println("------------------------------");
+
+        Enfermero ari = new Enfermero("Ari Tarasova", 200);
+
         ari.vender(30);
-        System.out.println("Ahora" + ari.getNombre() + " tiene " + ari.getDinero());
+
+        System.out.println("Ahora " + ari.getNombre() +
+                           " tiene " + ari.getDinero());
 
         ari.cantar();
-        ari.nombre= "Ari Tarasova";
 
+        System.out.println("Ahora " + ari.getNombre() +
+                           " tiene " + ari.getDinero());
 
+        ari.setNombreFalse();
 
-    System.out.println("Ahora "+dani.getNombre()+ " tiene "+dani.getDinero());
-    dan1.setNombreFalse();
-    System.out.println("Ahora "+dani.getNombre()+ " tiene "+dani.getDinero());
+        System.out.println("Ahora " + ari.getNombre() +
+                           " tiene " + ari.getDinero());
 
-    dani.reducirDeudaConIngreso(1500);
+        ari.reducirDeudaConIngreso(1500);
 
-    // probando el poder de la herencia en Persona y el polimorfismo de IPower y de Person.
+        System.out.println("------------------------------");
 
-    Persona profesionales[]= new Persona[10];
-    IPower poderesDisponibles[] = {new}
+        // Probando el poder de la herencia en Persona
+        // y el polimorfismo de IPower y de Persona
 
-    for(int i=0; i<10; i++){
-        int tipoProfesion = (int)(Math.random() * 3);
-        switch(tipoProfesion){
-            case 0:
-                profesionales[i] = new Enfermero("Ari " + i, 40*i);
-                break;
-            case 1:
-                profesionales[i] = new Doctor("Eimy" + i,55);
-                break;
-            case 2:
-                profesionales[i] = new Recepcionista("Doctor " + i, "Especialidad " + i);
-                break;
-            default:
-                profesionales[i] = new Persona("Ari " + i *40);
-                break;
+        Persona profesionales[] = new Persona[5];
+        IPower poderesDisponibles[] = {new PowerCorazones(),new PowerDinero(), new PowerFuego(), new PowerRayo(),new PowerAgua()};
+
+        for (int i = 0; i < 5; i++) {
+            int tipoProfesion = (int)(Math.random() * 3);
+            System.out.println(tipoProfesion);
+            switch (tipoProfesion) {
+                case 0:
+                    profesionales[i] = new Enfermero("Ari " + i, 40 * i);
+                    break;
+                case 1:
+                    profesionales[i] = new Doctor("Eimy " + i, 55);
+                    break;
+                case 2:
+                    profesionales[i] = new Recepcionista("Mathías " + i, i + 10);
+                    break;
+                default:
+                    profesionales[i] = new Enfermero("Ari " + i, 40 * i);
+            }
+            profesionales[i].setPower(poderesDisponibles[i]);
         }
-        profesionales[i].setPower(poderesDisponibles[(int)(Math.random()*2)]);
-    }
-    for(Persona p: profesionales){
-        System.out.println("Ataca "+p.getNombre());
-        p.atacar();
+
+        for (Persona p : profesionales) {
+            System.out.println("Ataca " + p.getNombre());
+            p.atacar();
+        }
     }
 }

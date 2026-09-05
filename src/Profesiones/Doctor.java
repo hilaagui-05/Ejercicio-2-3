@@ -1,8 +1,9 @@
 //Narco= Doctor
-//Dealer= Enfermero
-//Lavador= Recepcionista
+
+package profesiones;
 
 import java.util.Vector;
+import personas.Persona;
 
 public class Doctor extends Persona {
     private Vector<Enfermero> enfermeros;

@@ -3,12 +3,19 @@
 //por el nombre del método y el orden de los tipos de datos, NO DEL NOMBRE DE LOS PARÁMETROS,
 //si no del DataType
 
+package  personas;
+
+import poderes.*;
+
 public class Persona{
-    private byte edad;
+    private byte edad; // cuando no se especifica la visibilidad, el default es protected
     protected String nombre;
     private double deudasAPagar;
+    private IPower power;
 
+    //private enum status = {CAMINANDO(0), DURMIENDO, TRABAJNADO, CANTANDO };
     //private vector(int)
+
     //Constructor no tiene valor de retorno y se llama igual que la clase
     public Persona(){ //constructor primero reserva memoria luego ejecuta
         //inicializa los atributos
@@ -32,9 +39,10 @@ public class Persona{
 
     public Persona(String nombre){
         this();
-        this.edad= 0;
-        this.nombre = nombre;
-        //java no sufre de ambigÜedad
+        this.edad = 0; // asigna un valor por default
+        this.nombre = nombre;  // a pesar de que el parámetro se llama igual al atributo, 
+        // java no sufre de ambiguedad, porque el puntero this, se refiere a estrictamente
+        // esta instancia, por lo que accede al atributo de la instancia.
     }
 
     public String getNombre(){
@@ -44,18 +52,20 @@ public class Persona{
     public byte getEdad(){
         return this.edad;
     }
+
     public void setEdad(byte pEdad){
         this.edad= pEdad;
     }
+    // métodos get para leer los valores de los atributos de la instancia
+    // métodos set para escribir los valores de los atributos de la instancia
 
     public void reducirDeudaConIngreso(double pIngreso){
-        System.out.println("Debo "+this.deudasAPagar+" y le abono "+pIngreso+ "quedo debiendo "+(this.deudasAPagar-pIngreso));
+        System.out.println("Debo "+this.deudasAPagar+" y le abono "+ pIngreso + "quedo debiendo "+(this.deudasAPagar-pIngreso));
         this.deudasAPagar -= pIngreso;
-
     }
 
     //método
-    public void Cantar(){
+    public void cantar(){
         System.out.println("Para ser más sincero y certero"+ "\n"+
             "Mi signo de Cáncer es muy vulnerable para un Leo"+"\n"+
             "Puede que sea por Venus que no puedo"+"\n"+

@@ -1,4 +1,9 @@
+//Lavador= Recepcionista
+
+package profesiones;
+
 import java.util.Vector;
+import personas.Persona;
 
 public class Recepcionista extends Persona {
     private Vector<String> propiedades;

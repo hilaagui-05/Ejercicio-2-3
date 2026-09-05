@@ -1,6 +1,8 @@
-public class PowerDinero implements IPower {
-    public powerDinero(){
+package poderes;
 
+public class PowerDinero implements IPower {
+
+    public PowerDinero() {
     }
 
     @Override

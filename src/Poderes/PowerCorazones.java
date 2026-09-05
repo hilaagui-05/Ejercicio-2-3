@@ -1,10 +1,12 @@
+package poderes;
+
 public class PowerCorazones implements IPower {
-    public powerCorazones() {
-       
+
+    public PowerCorazones() {
     }
 
     @Override
     public void dispararPoder() {
-        System.out.println("♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥");
+        System.out.println("♥♥♥♥♥♥");
     }
 }
