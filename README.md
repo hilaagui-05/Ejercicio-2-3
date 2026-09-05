@@ -420,8 +420,3 @@ quickstart ..> PowerAgua
 
 ---
 
-## Conclusión
-
-El programa demuestra el uso de Programación Orientada a Objetos mediante herencia, polimorfismo, encapsulamiento, interfaces y organización mediante paquetes.
-
-La combinación de profesiones y poderes permite demostrar que una persona puede tener un comportamiento propio de su profesión y, al mismo tiempo, utilizar cualquiera de los poderes disponibles de manera independiente.
